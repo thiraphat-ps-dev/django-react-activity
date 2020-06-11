@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Activity
+from activity.models import Activity
 
 class ActivityAdmin(admin.ModelAdmin):
     list_display = ('id','title', 'description', 'completed','start_date','end_date')
