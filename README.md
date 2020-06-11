@@ -160,3 +160,59 @@ Go to backend/settings.py to add activity app
         'activity' # add activity app
       ]
 ```
+
+Create directory models in activity app folder
+
+```bash
+$ cd activity
+$ makedir models
+```
+
+Structure
+
+```bash
+django-react-activity
+│
+└───backend
+    │
+    └───backend
+    │
+    └───activity
+        │
+        └───models
+```
+
+Copy file **init**.py in backend folder and paste it to /models
+
+```bash
+django-react-activity
+│
+└───backend
+    │
+    └───backend
+    │
+    └───activity
+        │
+        └───models
+            │
+            └───__init__.py
+```
+
+Create activityModel.py file in models
+
+```bash
+django-react-activity
+│
+└───backend
+    │
+    └───backend
+    │
+    └───activity
+        │
+        └───models
+            │
+            └───__init__.py
+            │
+            └───activityModel.py
+
+```
