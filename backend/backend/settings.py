@@ -126,3 +126,8 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:3000',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':    
+         'activity.pagination.CustomPagination'
+}
