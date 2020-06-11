@@ -143,3 +143,76 @@ $ python manage.py runserver
 
 Server is running
 ![image info](./img/runserver_1.png)
+
+Register the activity app
+<br>
+Go to backend/settings.py to add activity app
+
+```python
+    # Application definition
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'activity' # add activity app
+      ]
+```
+
+Create directory models in activity app folder
+
+```bash
+$ cd activity
+$ makedir models
+```
+
+Structure
+
+```bash
+django-react-activity
+│
+└───backend
+    │
+    └───backend
+    │
+    └───activity
+        │
+        └───models
+```
+
+Copy file **init**.py in backend folder and paste it to /models
+
+```bash
+django-react-activity
+│
+└───backend
+    │
+    └───backend
+    │
+    └───activity
+        │
+        └───models
+            │
+            └───__init__.py
+```
+
+Create activityModel.py file in models
+
+```bash
+django-react-activity
+│
+└───backend
+    │
+    └───backend
+    │
+    └───activity
+        │
+        └───models
+            │
+            └───__init__.py
+            │
+            └───activityModel.py
+
+```
