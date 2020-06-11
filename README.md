@@ -94,6 +94,7 @@ Result
 3.0.7
 ```
 
+#Setup Backend Django
 Create project django backend in root directory
 
 ```bash
@@ -481,6 +482,7 @@ from .activityView import *
 ```
 
 Create file urls.py in activity app folder
+
 ```bash
 django-react-activity
 │
@@ -494,27 +496,30 @@ django-react-activity
 ```
 
 Create url to use api in activity/urls.py
+
 ```python
 from django.conf.urls import url,include
 from activity.views import *
 
-urlpatterns = [   
+urlpatterns = [
     url(r'^activity/$', ActivitylistView.as_view(), name='activity')
 ]
 ```
 
 In file backend/backend/urls.py add this to link urls activityapp
+
 ```python
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include , url
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/', include('activity.urls')),            
+    url(r'^api/', include('activity.urls')),
 ]
 ```
 
 Create CustomPagination create file pagination.py in activity/
+
 ```bash
 django-react-activity
 │
@@ -528,6 +533,7 @@ django-react-activity
 ```
 
 Add this
+
 ```python
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -555,26 +561,27 @@ class CustomPagination(PageNumberPagination):
 
 ```
 
-
 In backend/settings.py add this bottom line
+
 ```python
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS':    
+    'DEFAULT_PAGINATION_CLASS':
          'activity.pagination.CustomPagination'
 }
 ```
 
 In views/activityView.py add custompagination
+
 ```python
 from django.shortcuts import render
-from rest_framework import generics         
-from activity.serializers import ActivitySerializer     
-from activity.models import Activity                    
+from rest_framework import generics
+from activity.serializers import ActivitySerializer
+from activity.models import Activity
 from activity.pagination import CustomPagination        #add custom pagination
 
-class ActivitylistView(generics.ListAPIView):       
-    serializer_class = ActivitySerializer          
-    queryset = Activity.objects.all()             
+class ActivitylistView(generics.ListAPIView):
+    serializer_class = ActivitySerializer
+    queryset = Activity.objects.all()
     pagination_class = CustomPagination          #add custom pagination
 ```
 
