@@ -140,3 +140,6 @@ Run migrations and start server
 $ python manage.py migrate
 $ python manage.py runserver
 ```
+
+Server is running
+![image info](./img/runserver_1.png)
