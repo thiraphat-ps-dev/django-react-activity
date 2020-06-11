@@ -143,3 +143,20 @@ $ python manage.py runserver
 
 Server is running
 ![image info](./img/runserver_1.png)
+
+Register the activity app
+<br>
+Go to backend/settings.py to add activity app
+
+```python
+    # Application definition
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'activity' # add activity app
+      ]
+```
