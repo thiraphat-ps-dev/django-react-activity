@@ -2,7 +2,123 @@
 
 An application for recording daily to-do lists.
 
-## Installation
+##Installation with clone this project
+```bash
+git clone https://github.com/thiraphat-ps-dev/django-react-activity.git
+```
+
+
+Download and install [Node.Js](https://nodejs.org/en/download/) for install package.
+<br/>
+
+Install Python3
+
+```bash
+$ npm install python
+```
+
+Check Python version
+
+```bash
+$ python -V
+```
+
+Result
+
+```bash
+Python 2.7.16
+```
+
+Install pip
+
+```bash
+$ npm install pip
+```
+
+Check pip version
+
+```bash
+$ pip -V
+```
+
+Result
+
+```bash
+pip 20.2b1 from /Library/Python/2.7/site-packages/pip-20.2b1-py2.7.egg/pip (python 2.7)
+```
+
+Create venv python3 with command
+
+```bash
+$ python3 -m venv ./venv
+```
+
+Activate venv
+
+```bash
+$ source venv/bin/activate
+```
+
+If you want to deactivate use this command
+
+Deactivate venv
+
+```bash
+$ deactivate
+```
+
+
+
+Go to root directory
+
+```bash
+$ cd django-react-activity
+```
+#Setup backend 
+
+Install Django
+
+```bash
+$ pip install django
+```
+
+Check django version
+
+```bash
+$ python -c "import django; print(django.get_version())"
+```
+
+Result
+
+```bash
+(venv) thiraphat.ps.dev@Mac-mini django-react-activity % python -c "import django; print(django.get_version())"
+3.0.7
+```
+
+Go to backend folder
+```bash
+$ cd backend
+```
+
+migrate this backend with command
+```bash
+$ python manage.py migrate
+```
+
+createsuper user for use adminpage
+```bash
+$ python manage.py createsuperuser
+```
+
+run backend server with command 
+```bash
+$ python manage.py runserver
+```
+
+
+
+
+## Installation if you want to learning how to build this project
 
 Download and install [Node.Js](https://nodejs.org/en/download/) for install package.
 <br/>
@@ -93,6 +209,8 @@ Result
 (venv) thiraphat.ps.dev@Mac-mini django-react-activity % python -c "import django; print(django.get_version())"
 3.0.7
 ```
+
+
 
 #Setup Backend Django
 Create project django backend in root directory
@@ -587,3 +705,69 @@ class ActivitylistView(generics.ListAPIView):
 
 Go to url [http://localhost:8000/api/activity/](http://localhost:8000/api/activity/)
 ![image info](./img/activity_list.png)
+
+#Setup Frontend
+Install create-react-app
+```bash
+$ npm install -g create-react-app
+```
+Create frontend react with command
+```bash
+$ create-react-app frontend
+```
+
+Go to frontend folder
+```bash
+$ cd frontend
+```
+Run frontend  server with command
+```bash
+$ npm start
+```
+
+![image info](./img/react.png)
+
+Install node-sass to use scss
+```bash
+$ npm install node-sass
+```
+
+Test to use scss create folder styles in src and create file main.scss and add this
+```css
+$myColor: red;
+
+p {
+  color: $myColor;
+}
+```
+
+Import this scss file to App.js
+```javascript
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import './styles/main.scss';  //add this line
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+```
