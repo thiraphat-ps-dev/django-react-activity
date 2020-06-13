@@ -45,9 +45,9 @@ body {
     transform: translate(-50%, -51%);
   }
 
-  &.modal-open {
-    filter: blur(5px) grayscale(50%);
-  }
+  // &.modal-open {
+  //   filter: blur(5px) grayscale(50%);
+  // }
 
   .header-text {
     background-color: black;
@@ -64,7 +64,7 @@ body {
       font-weight: bold;
       border: 2px solid #ffffff;
       padding: 5px 10px;
-      border-radius: 8px;
+      // border-radius: 8px;
       .fa-plus-square {
         margin-right: 10px;
       }
@@ -82,12 +82,13 @@ body {
   text-align: left;
   margin: 10px 0;
   width: 100%;
+  // position: relative;
   // max-height: 100px;
   // border-radius: 8px;
   // height: 100px;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-
+  // overflow: hidden;
   transform: translateY(0px);
 
   &.first {
@@ -122,6 +123,22 @@ body {
     width: fit-content;
   }
 }
+
+.btn-delete {
+  width: 100px;
+  border: none;
+  background-color: #DD2C01 !important;
+  color: white !important;
+  border-radius: 0 !important;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  height: 100%;
+  right: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: -1;
+}
+
 .card-tools {
   background-color: black;
   width: 50%;
@@ -131,6 +148,14 @@ body {
   justify-content: space-evenly;
   flex-grow: 1;
   align-items: center;
+  overflow: hidden;
+
+  &:hover {
+    .btn-delete {
+      right: -100px;
+    }
+  }
+
   .fa-circle,
   .fa-check-circle {
     font-size: 50px;
@@ -139,9 +164,9 @@ body {
 
   button {
     border: none;
-    padding: 5px 10px;
+    padding: 15px 20px;
     font-size: 20px;
-    border-radius: 8px;
+    // border-radius: 8px;
     background-color: white;
     color: black;
     outline: none;
@@ -154,6 +179,11 @@ body {
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
       transform: translateY(-3px);
+    }
+    &:active {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+      transform: translateY(0px);
     }
   }
 }
@@ -208,10 +238,28 @@ body {
   }
 }
 
+
+.modal-background{
+
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #565656ad;
+  // filter: blur(5px);
+  visibility: hidden;
+  // opacity: 0.8;
+
+  &.modal-open{
+    visibility: visible; 
+  }
+}
+
 .modal-container {
   width: 400px;
   // height: 600px;
   position: absolute;
+  z-index: 1;
   left: 50%;
   top: 50%;
   background-color: white;

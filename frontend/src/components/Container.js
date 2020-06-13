@@ -18,8 +18,9 @@ export default class Container extends Component {
   componentDidMount() {
     this.refreshList();
   }
-  refreshList = () => {
-    axios
+
+  refreshList = async () => {
+    await axios
       .get('http://localhost:8000/api/activitys/')
       .then((res) => {
         const pages = [];
@@ -31,9 +32,14 @@ export default class Container extends Component {
       })
       .catch((err) => console.log(err));
   };
-
+  closeModal() {
+    let card = document.querySelector('.modal-background');
+    let modal = document.querySelector('.modal-container');
+    let c = card ? card.classList.remove('modal-open') : null;
+    let m = modal ? modal.classList.remove('-open') : null;
+  }
   openModal() {
-    let card = document.querySelector('.activity-container');
+    let card = document.querySelector('.modal-background');
     let modal = document.querySelector('.modal-container');
     let c = card ? card.classList.add('modal-open') : null;
     let m = modal ? modal.classList.add('-open') : null;
@@ -60,7 +66,16 @@ export default class Container extends Component {
           <div className="card">
             {this.state.activityList.results
               ? this.state.activityList.results.map((activity, i) => (
-                  <Card key={i} index={i} title={activity.title} completed={activity.completed} start={activity.start_date} end={activity.end_date} />
+                  <Card
+                    key={i}
+                    id={activity.id}
+                    index={i}
+                    title={activity.title}
+                    description={activity.description}
+                    completed={activity.completed}
+                    start={activity.start_date}
+                    end={activity.end_date}
+                  />
                 ))
               : null}
           </div>
@@ -110,7 +125,7 @@ export default class Container extends Component {
           </div>
         </div>
 
-        <Modal />
+        <Modal name={'Add Activity'} />
       </div>
     );
   }
