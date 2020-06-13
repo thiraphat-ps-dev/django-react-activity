@@ -6,6 +6,6 @@ from activity.pagination import CustomPagination
 
 
 class ActivityViewSet(viewsets.ModelViewSet):
-    queryset = Activity.objects.all()
+    queryset = Activity.objects.all().order_by('completed','start_date', '-id')
     serializer_class = ActivitySerializer
     pagination_class = CustomPagination
