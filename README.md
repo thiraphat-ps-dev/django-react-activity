@@ -2,7 +2,7 @@
 
 An application for recording daily to-do lists.
 
-#Preview
+# Preview
 
 <img src='./img/frontend.png'></img>
 <img src='./img/frontend_add.png'></img>
