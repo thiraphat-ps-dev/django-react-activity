@@ -1,13 +1,11 @@
 from django.shortcuts import render
-from rest_framework import generics         
-from activity.serializers import ActivitySerializer     
-from activity.models import Activity                    
+from rest_framework import viewsets
+from activity.serializers import ActivitySerializer
+from activity.models import Activity
 from activity.pagination import CustomPagination
 
 
-
-
-class ActivitylistView(generics.ListAPIView):       
-    serializer_class = ActivitySerializer          
-    queryset = Activity.objects.all()             
+class ActivityViewSet(viewsets.ModelViewSet):
+    queryset = Activity.objects.all().order_by('completed','start_date', '-id')
+    serializer_class = ActivitySerializer
     pagination_class = CustomPagination
