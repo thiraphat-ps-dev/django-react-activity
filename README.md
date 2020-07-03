@@ -5,7 +5,7 @@ An application for recording daily to-do lists.
 # Preview
 
 <img src='./img/frontend.png'></img>
-<img src='./img/frontend_add.png'></img>
+
 
 
 ## Installation with clone this project
